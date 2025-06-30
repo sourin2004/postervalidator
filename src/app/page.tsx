@@ -31,11 +31,13 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen w-full flex-col items-center bg-background p-4 sm:p-8">
-      <div className="w-full max-w-2xl">
-        <header className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline" style={{color: "hsl(210, 13%, 50%)"}}>PosterEyes</h1>
-          <p className="text-muted-foreground mt-2">
+    <main className="flex min-h-screen w-full flex-col items-center bg-background p-4 sm:p-8 md:p-12">
+      <div className="w-full max-w-2xl space-y-8">
+        <header className="text-center">
+          <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary animate-in fade-in slide-in-from-top-4 duration-1000">
+            PosterValidator
+          </h1>
+          <p className="text-muted-foreground mt-4 text-lg animate-in fade-in slide-in-from-top-4 duration-1000 delay-200">
             Enter an image URL to detect and analyze posters with AI.
           </p>
         </header>
@@ -51,7 +53,7 @@ export default function Home() {
         )}
 
         {isLoading && (
-           <Card className="mt-8 overflow-hidden shadow-lg">
+           <Card className="mt-8 overflow-hidden shadow-lg border-primary/20">
              <CardContent className="p-6">
                 <Skeleton className="h-[300px] w-full rounded-md" />
                 <div className="space-y-4 mt-6">

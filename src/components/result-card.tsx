@@ -42,7 +42,8 @@ export function ResultCard({ result }: ResultCardProps) {
       const scaleY = displayHeight / naturalHeight;
 
       ctx.strokeStyle = "hsl(var(--primary))";
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 4;
+      ctx.setLineDash([10, 5]);
       ctx.strokeRect(
         x * scaleX,
         y * scaleY,
@@ -68,16 +69,16 @@ export function ResultCard({ result }: ResultCardProps) {
   }, [result]);
 
   return (
-    <Card className="mt-8 overflow-hidden shadow-lg animate-in fade-in-50 duration-500">
+    <Card className="mt-8 overflow-visible shadow-lg shadow-primary/10 animate-in fade-in-50 duration-500">
       <CardHeader>
-        <CardTitle>Analysis Result</CardTitle>
+        <CardTitle className="font-headline text-primary">Analysis Result</CardTitle>
         <CardDescription>
           Here's the breakdown of the poster detection analysis.
         </CardDescription>
       </CardHeader>
       <CardContent>
         {result.imageUrl && (
-          <div className="relative mb-6 rounded-md overflow-hidden border">
+          <div className="relative mb-6 rounded-lg overflow-hidden border-2 border-primary/20 shadow-glow-primary">
             <Image
               ref={imageRef}
               src={result.imageUrl}
@@ -101,10 +102,10 @@ export function ResultCard({ result }: ResultCardProps) {
           </div>
         )}
 
-        <div className="space-y-4">
+        <div className="space-y-4 font-code">
           <div className="flex items-center justify-between">
             <span className="font-medium text-muted-foreground">Poster Detected:</span>
-            <Badge variant={result.containsPoster ? "default" : "destructive"} className={result.containsPoster ? 'bg-green-500 hover:bg-green-600' : 'bg-red-500 hover:bg-red-600'}>
+            <Badge variant={result.containsPoster ? "default" : "secondary"}>
               {result.containsPoster ? "Yes" : "No"}
             </Badge>
           </div>
@@ -113,7 +114,7 @@ export function ResultCard({ result }: ResultCardProps) {
             <>
              <div className="flex items-center justify-between">
                 <span className="font-medium text-muted-foreground">Confidence:</span>
-                <span className="font-mono text-foreground">
+                <span className="font-mono text-primary font-bold">
                   {((result.confidence ?? 0) * 100).toFixed(2)}%
                 </span>
               </div>
@@ -132,7 +133,7 @@ export function ResultCard({ result }: ResultCardProps) {
 
               <div>
                 <h3 className="font-medium text-muted-foreground mb-2">AI-Improved Text:</h3>
-                <p className="text-sm bg-muted/50 p-3 rounded-md border text-foreground whitespace-pre-wrap">
+                <p className="text-sm bg-muted/50 p-4 rounded-lg border border-border text-foreground whitespace-pre-wrap font-mono">
                   {result.detectedText || "No text detected."}
                 </p>
               </div>
