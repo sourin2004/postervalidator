@@ -46,6 +46,10 @@ export async function validateImage(
 
   const { imageUrl } = parsedInput.data;
 
+  if (imageUrl.startsWith("https://www.google.com/url?")) {
+    return { error: "The provided URL appears to be a Google search link, not a direct image URL. Please provide a direct link to an image file." };
+  }
+
   // Simulate an invalid image URL case
   if (imageUrl.includes("invalid")) {
     return { error: "The provided image URL is invalid or inaccessible." };
