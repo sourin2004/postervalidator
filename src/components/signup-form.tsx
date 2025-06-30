@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -91,6 +92,9 @@ export function SignUpForm({ onSignUpSuccess }: SignUpFormProps) {
               <FormControl>
                 <Input type="password" placeholder="••••••••" {...field} suppressHydrationWarning />
               </FormControl>
+              <FormDescription>
+                Password must be at least 8 characters.
+              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
