@@ -45,7 +45,7 @@ export default function Home() {
   }
   
   const authAction = isAuthenticated ? (
-    <Button variant="ghost" onClick={handleLogout} className="text-muted-foreground hover:text-foreground">
+    <Button variant="ghost" onClick={handleLogout} className="text-muted-foreground hover:text-foreground" suppressHydrationWarning>
       <LogOut />
       Logout
     </Button>

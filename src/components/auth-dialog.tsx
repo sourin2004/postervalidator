@@ -25,7 +25,7 @@ export function AuthDialog({ onAuthSuccess }: AuthDialogProps) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
+        <Button variant="ghost" className="text-muted-foreground hover:text-foreground" suppressHydrationWarning>
             <User />
             <span>Login / Sign Up</span>
         </Button>
