@@ -16,7 +16,7 @@ export default function OverviewPage() {
           <Card className="border-primary/20 shadow-lg">
               <CardHeader>
                   <CardTitle className="font-headline text-2xl">Our Mission</CardTitle>
-              </Header>
+              </CardHeader>
               <CardContent className="space-y-4 text-muted-foreground">
                   <p>
                       PosterValidator was built to demonstrate the power of modern AI in understanding and processing visual information. Our goal is to provide a simple, intuitive interface for users to get detailed analysis of poster images, from text extraction to dimensional estimation.
