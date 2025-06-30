@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { AuthTabs } from "@/components/auth-tabs";
+import { AppShell } from "@/components/layout/app-shell";
 
 export default function Home() {
   const [result, setResult] = useState<ValidationResult | null>(null);
@@ -42,18 +43,16 @@ export default function Home() {
     setResult(null);
     setError(null);
   }
+  
+  const logoutButton = isAuthenticated && (
+    <Button variant="ghost" onClick={handleLogout} className="text-muted-foreground hover:text-foreground">
+      <LogOut />
+      Logout
+    </Button>
+  );
 
   return (
-    <main className="flex min-h-screen w-full flex-col items-center bg-background p-4 sm:p-8 md:p-12">
-      <div className="absolute top-4 right-4 z-10">
-        {isAuthenticated && (
-          <Button variant="ghost" onClick={handleLogout} className="text-muted-foreground hover:text-foreground">
-            <LogOut />
-            Logout
-          </Button>
-        )}
-      </div>
-
+    <AppShell actions={logoutButton}>
       <div className="w-full max-w-2xl space-y-8">
         <header className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400 animate-in fade-in slide-in-from-top-4 duration-1000">
@@ -99,6 +98,6 @@ export default function Home() {
           </>
         )}
       </div>
-    </main>
+    </AppShell>
   );
 }
