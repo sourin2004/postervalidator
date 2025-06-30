@@ -21,7 +21,7 @@ export default function OverviewPage() {
            <Card className="border-primary/20 shadow-lg">
               <CardHeader>
                   <CardTitle className="font-headline text-2xl">Technology Stack</CardTitle>
-              </Header>
+              </CardHeader>
               <CardContent className="space-y-2 text-muted-foreground">
                  <p>This project is built with the following technologies:</p>
                  <ul className="list-disc list-inside">
