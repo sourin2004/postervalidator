@@ -10,9 +10,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['"Roboto Mono"', 'monospace'],
-        headline: ['Orbitron', 'sans-serif'],
-        code: ['"Roboto Mono"', 'monospace'],
+        body: ['Inter', 'sans-serif'],
+        headline: ['Audiowide', 'sans-serif'],
+        code: ['Inter', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

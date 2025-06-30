@@ -34,7 +34,7 @@ export default function Home() {
     <main className="flex min-h-screen w-full flex-col items-center bg-background p-4 sm:p-8 md:p-12">
       <div className="w-full max-w-2xl space-y-8">
         <header className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary animate-in fade-in slide-in-from-top-4 duration-1000">
+          <h1 className="text-4xl md:text-5xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400 animate-in fade-in slide-in-from-top-4 duration-1000">
             PosterValidator
           </h1>
           <p className="text-muted-foreground mt-4 text-lg animate-in fade-in slide-in-from-top-4 duration-1000 delay-200">
