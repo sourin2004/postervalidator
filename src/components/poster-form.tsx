@@ -46,13 +46,13 @@ export function PosterForm({ onSubmit, isLoading }: PosterFormProps) {
             <FormItem>
               <FormLabel className="font-headline text-lg">Image URL</FormLabel>
               <FormControl>
-                <Input placeholder="https://example.com/poster.jpg" {...field} className="py-6 text-base" />
+                <Input placeholder="https://example.com/poster.jpg" {...field} className="py-6 text-base" suppressHydrationWarning />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full py-6 text-lg font-bold transition-shadow hover:shadow-glow-primary" disabled={isLoading}>
+        <Button type="submit" className="w-full py-6 text-lg font-bold transition-shadow hover:shadow-glow-primary" disabled={isLoading} suppressHydrationWarning>
           {isLoading ? (
             <Loader2 className="animate-spin" />
           ) : (
