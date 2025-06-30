@@ -63,7 +63,7 @@ export function SignUpForm({ onSignUpSuccess }: SignUpFormProps) {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="John Doe" {...field} />
+                <Input placeholder="John Doe" {...field} suppressHydrationWarning />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -76,7 +76,7 @@ export function SignUpForm({ onSignUpSuccess }: SignUpFormProps) {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="you@example.com" {...field} />
+                <Input type="email" placeholder="you@example.com" {...field} suppressHydrationWarning />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -89,7 +89,7 @@ export function SignUpForm({ onSignUpSuccess }: SignUpFormProps) {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input type="password" placeholder="••••••••" {...field} />
+                <Input type="password" placeholder="••••••••" {...field} suppressHydrationWarning />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -102,13 +102,13 @@ export function SignUpForm({ onSignUpSuccess }: SignUpFormProps) {
             <FormItem>
               <FormLabel>Confirm Password</FormLabel>
               <FormControl>
-                <Input type="password" placeholder="••••••••" {...field} />
+                <Input type="password" placeholder="••••••••" {...field} suppressHydrationWarning />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full" disabled={isLoading}>
+        <Button type="submit" className="w-full" disabled={isLoading} suppressHydrationWarning>
           {isLoading && <Loader2 className="animate-spin" />}
           Create Account
         </Button>

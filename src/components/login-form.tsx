@@ -54,7 +54,7 @@ export function LoginForm({ onLoginSuccess }: LoginFormProps) {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="you@example.com" {...field} />
+                <Input type="email" placeholder="you@example.com" {...field} suppressHydrationWarning />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -67,7 +67,7 @@ export function LoginForm({ onLoginSuccess }: LoginFormProps) {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input type="password" placeholder="••••••••" {...field} />
+                <Input type="password" placeholder="••••••••" {...field} suppressHydrationWarning />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -78,7 +78,7 @@ export function LoginForm({ onLoginSuccess }: LoginFormProps) {
             Forgot password?
           </a>
         </div>
-        <Button type="submit" className="w-full" disabled={isLoading}>
+        <Button type="submit" className="w-full" disabled={isLoading} suppressHydrationWarning>
           {isLoading && <Loader2 className="animate-spin" />}
           Login
         </Button>
