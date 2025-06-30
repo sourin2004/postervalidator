@@ -1,6 +1,7 @@
 "use server";
 
 import { improveDetectedText } from "@/ai/flows/improve-detected-text";
+import { detectTextInImage } from "@/ai/flows/detect-text";
 import { z } from "zod";
 
 const BoundingBoxSchema = z.object({
@@ -67,12 +68,15 @@ export async function validateImage(
       height: Math.floor(Math.random() * 300) + 350,
     };
 
-    // Simulate raw text that might have OCR errors
-    const rawDetectedText = "POSTER EYES\nAnuual Music & Arts Festivall\n\nFeaturng:\nTHE PIXELS\nSOUNDWAVES\nECHO CHAMBER\n\nSat, 24th AUG @ 8PM\nTICKETS AVAILBLE NOW";
-
     try {
-      const { improvedText } = await improveDetectedText({ detectedText: rawDetectedText });
+      const { detectedText: rawDetectedText } = await detectTextInImage({ imageUrl });
 
+      let improvedText = "No text could be detected in the image.";
+      if (rawDetectedText && rawDetectedText.trim().length > 0) {
+        const result = await improveDetectedText({ detectedText: rawDetectedText });
+        improvedText = result.improvedText;
+      }
+      
       return {
         data: {
           containsPoster: true,
@@ -85,7 +89,7 @@ export async function validateImage(
       };
     } catch (aiError) {
       console.error("AI processing failed:", aiError);
-      return { error: "Failed to improve text with AI. Please try again." };
+      return { error: "AI processing failed. Please try again with a different image." };
     }
   } else {
     // Simulate case where no poster is found
