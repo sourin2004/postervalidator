@@ -5,14 +5,6 @@ export default function OverviewPage() {
   return (
     <AppShell>
       <div className="w-full max-w-4xl space-y-8">
-          <header className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
-                  Overview
-              </h1>
-              <p className="text-muted-foreground mt-4 text-lg">
-                  An AI-powered tool to analyze and validate poster images.
-              </p>
-          </header>
           <Card className="border-primary/20 shadow-lg">
               <CardHeader>
                   <CardTitle className="font-headline text-2xl">Our Mission</CardTitle>
